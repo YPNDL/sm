@@ -3,9 +3,6 @@ package com.xiuzhen.service.impl;
 import com.xiuzhen.account.Account;
 import com.xiuzhen.dao.AccountDao;
 import com.xiuzhen.service.AccountService;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -31,19 +28,19 @@ public class AccountServiceImpl implements AccountService {
     }
 
     //修改
-    @Update("update ssm set username=#{}")
+    //@Update("update ssm set username=#{}")
     public void update(Account account){
         accountDao.update(account);
     }
 
     //删除
-    @Delete("delete from ssm where id = #{}")
+    //@Delete("delete from ssm where id = #{}")
     public void delete(Account account){
         accountDao.delete(account);
     }
 
     //根据id查询
-    @Select("select * from ssm where id=#{id}")
+    //@Select("select * from ssm where id=#{id}")
     public Account select(Account account){
         Account select = accountDao.select(account);
         return select;

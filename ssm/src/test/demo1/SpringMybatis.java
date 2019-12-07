@@ -77,16 +77,21 @@ public class SpringMybatis {
     // 批量插入
         Date date = new Date();
         System.out.println(date.getTime());
-        ArrayList<Account> accounts = new ArrayList<>();
 
-        for(int i=0; i<=10000; i++){
-            Account account = new Account();
-            account.setId(20+i);
-            account.setUsername("李四");
-            account.setPassword("123456");
-            accounts.add(account);
+
+        for (int a=0,b=10; a <= 1000; a++){
+            ArrayList<Account> accounts = new ArrayList<>();
+
+                for(int i=0; i<=10000; i++,++b){
+                    Account account = new Account();
+                    account.setId(b);
+                    account.setUsername("李四");
+                    account.setPassword("123456");
+                    accounts.add(account);
+                }
+
+            accountService.save(accounts);
         }
-        accountService.save(accounts);
         Date date1 = new Date();
         System.out.println(date1.getTime());
     }
